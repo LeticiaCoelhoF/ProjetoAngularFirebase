@@ -11,10 +11,11 @@ import { MessageService } from '../services/message.service';
 })
 export class HomePage {
   recado = {
-    assunto: null
+    assunto: null,
+    mensagem: null
   }
 
-  
+
   constructor(
     private crudservice: CrudService
   ){ }
