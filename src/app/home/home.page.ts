@@ -15,13 +15,34 @@ export class HomePage {
     mensagem: null
   }
 
+  recados: any = []
 
   constructor(
-    private crudservice: CrudService
+    public crudservice: CrudService
   ){ }
 
   enviar(){
     this.crudservice.insert(this.recado, 'recados');
+  }
+
+  carregar(){
+    this.recados = [];
+    this.crudservice.fetchAll('recados')
+    .then((response) => {
+        console.log(response);
+        this.recados = response;
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {
+      console.log('Processo finalizado');
+    });
+  }
+
+  remover(id: string){
+    this.crudservice.remove(id, 'recados');
+    this.carregar();
   }
 
  pessoa ={
