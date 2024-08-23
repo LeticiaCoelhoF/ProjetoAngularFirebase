@@ -10,56 +10,36 @@ import { MessageService } from '../services/message.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  recado = {
-    assunto: null
-  }
 
-  
-  constructor(
-    private crudservice: CrudService
-  ){ }
+    isLoading: boolean = false;
+    funcionarios: any;
 
-  enviar(){
-    this.crudservice.insert(this.recado, 'recados');
-  }
+    getFuncionarios(){
+      this.isLoading = true;
+    
+      let funcionario = { CodFun: '6' };
 
- pessoa ={
-    foto: 'https://professionalmoron.com/wp-content/uploads/2012/05/alpaca-985158_640.jpg',
-    nome: ' Pombinha da Paz Silva',
-    objetivo: 'Programador HTML & CSS',
-    contato:{
-        email: 'prombinha@hotmail.com',
-        telefone:'(11) 99999-9999',
-        github: 'github.com/pombinha',
-        linkedin: 'linkedin.com/pombinha'
-    },
-    softskills:[
-      'Comunicação',
-      'Proatividade',
-      'Trabalho em grupo'
-    ],
-    formacao:[
-      {
-        ano_inicio: '2022',
-        ano_fim: '2024',
-        instituicao: 'Etec Sales Gomes',
-        curso: 'Técnico em Desenvolvimento de Sistemas'
-      },
-      {
-        ano_inicio: '2025',
-        ano_fim: '2027',
-        instituicao: 'Fatec',
-        curso: 'Superior em Análise e Desenvolvimento de Sistemas'
-      }
-    ],
-    projeto:[
-      {
-        ano: '2022',
-        instituicao: 'Etec Sales Gomes',
-        nome: 'Etec de Portas Abertas - EPA',
-        descricao: 'Lorem'
-      }
-  ]
- }
+      let funcionarios:any;
 
+      fetch('http://localhost/api/v1/listar_funcionarios.php',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(funcionario)
+        }
+      )
+      .then(response => response.json())
+      .then(response => {
+        console.log(response.funcionarios);
+        this.funcionarios = response.funcionarios;
+      })
+      .catch(erro => {
+        console.log(erro);
+      })
+      .finally(()=>{
+        this.isLoading = false;
+      })
+    }
 }
