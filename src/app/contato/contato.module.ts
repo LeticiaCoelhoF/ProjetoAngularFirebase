@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { IonicModule } from '@ionic/angular';
+
+import { ContatoPageRoutingModule } from './contato-routing.module';
+
+import { ContatoPage } from './contato.page';
 import { MenuModule } from '../shared/components/menu/menu.module';
 import { CabecalhoModule } from '../shared/components/cabecalho/cabecalho.module';
-
+import { CabecalhoComponent } from '../shared/components/cabecalho/cabecalho.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
+    ContatoPageRoutingModule,
     MenuModule,
     CabecalhoModule
   ],
-  declarations: [HomePage]
+  declarations: [ContatoPage]
 })
-export class HomePageModule {}
+export class ContatoPageModule {}

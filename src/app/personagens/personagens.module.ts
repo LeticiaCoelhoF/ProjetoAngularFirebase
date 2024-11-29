@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
 
-import { HomePageRoutingModule } from './home-routing.module';
+import { IonicModule } from '@ionic/angular';
+
+import { PersonagensPageRoutingModule } from './personagens-routing.module';
+
+import { PersonagensPage } from './personagens.page';
 import { MenuModule } from '../shared/components/menu/menu.module';
+import { CabecalhoComponent } from '../shared/components/cabecalho/cabecalho.component';
 import { CabecalhoModule } from '../shared/components/cabecalho/cabecalho.module';
-
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
+    PersonagensPageRoutingModule,
     MenuModule,
     CabecalhoModule
   ],
-  declarations: [HomePage]
+  declarations: [PersonagensPage]
 })
-export class HomePageModule {}
+export class PersonagensPageModule {}

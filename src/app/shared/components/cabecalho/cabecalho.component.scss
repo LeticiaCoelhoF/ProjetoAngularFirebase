@@ -1,0 +1,23 @@
+.cabecalho{
+    height: 250px;
+    background-image: url('https://images.tcdn.com.br/img/editor/up/664029/Mortal_Kombat_Banner.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    & h1, marquee{
+        font-size: 64px;
+        color: white;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        letter-spacing: 2px;
+        text-shadow: 1px 1px 5px black;
+    }
+    & marquee{
+        font-size: 21px;
+    }
+
+}

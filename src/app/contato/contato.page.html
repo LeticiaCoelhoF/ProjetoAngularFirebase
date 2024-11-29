@@ -1,0 +1,54 @@
+<ion-content [fullscreen]="true">
+    <app-cabecalho title = "Página de Contato" subtitle = "Entre em contato com nossos colaboradores"></app-cabecalho>
+    <app-menu></app-menu>
+
+    <ion-row class = "ion-justify-content-center">
+        <ion-col size = "6">
+            <ion-input label = "Nome Completo" [(ngModel)] = "this.contato.nome"></ion-input>
+            <ion-input label = "Assunto" [(ngModel)] = "this.contato.assunto"></ion-input>
+            <ion-input label = "Mensagem" [(ngModel)] = "this.contato.mensagem"></ion-input>
+
+            <ng-container *ngFor="let estrelinha of this.contato.estrelinha">
+                <ion-icon name="star-outline" [ngStyle] = "{'color': estrelinha.selecionado ? 'yellow' : 'white'}" (click)="setEstrelinha(estrelinha)"></ion-icon>
+            </ng-container>
+
+            <ion-item lines = "none">
+                <ion-button (click)="atualizar()" color = "primary">Atualizar</ion-button>
+                <ion-button (click)="enviar()" color = "secondary">Enviar</ion-button>
+            </ion-item>
+            <!-- shift + alt + seta baixo -->
+        </ion-col>
+    </ion-row>
+
+    <ion-row class = "ion-justify-content-center">
+        <ion-col size = "6">
+            <ion-list>
+
+                <ng-container *ngFor="let contato of this.contatos">
+                    <ion-row *ngIf="this.crudService.isLoading">
+                        <ion-col size = "3">
+                            <ion-skeleton-text [animated]="true" style="width: 100%; height: 30px"></ion-skeleton-text>
+                        </ion-col>
+                        <ion-col size = "3">
+                            <ion-skeleton-text [animated]="true" style="width: 100%; height: 30px"></ion-skeleton-text>
+                        </ion-col>
+                        <ion-col size = "4">
+                            <ion-skeleton-text [animated]="true" style="width: 100%; height: 30px"></ion-skeleton-text>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row *ngIf="!this.crudService.isLoading">
+                        <ion-col size = "3">Nome: {{contato.nome}}</ion-col>
+                        <ion-col size = "3">Assunto: {{contato.assunto}}</ion-col>
+                        <ion-col size = "4">Mensagem: {{contato.mensagem}}</ion-col>
+                        <ion-col size = "2" class = "ion-text-end">
+                            <ion-icon name="pencil-outline" (click) = "edit(contato)"></ion-icon>
+                            <ion-icon name="trash-outline" (click) = "edit(contato.id)"></ion-icon>
+                        </ion-col>
+                    </ion-row>
+                </ng-container>
+                <!-- não é renderizado -->
+            </ion-list>
+        </ion-col>
+    </ion-row>
+</ion-content>
