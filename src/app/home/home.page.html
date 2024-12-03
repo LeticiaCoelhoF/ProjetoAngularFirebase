@@ -1,8 +1,6 @@
-<ion-header>
-    <img src = "https://cdn3.iconfinder.com/data/icons/education-209/64/plane-paper-toy-science-school-256.png" class = "aviao">
-    <ion-title class = "voar">FLIGHT</ion-title>
-  </ion-header>
-  
+<app-cabecalho title = "FLIGHT"></app-cabecalho>
+<!-- <app-cadastro></app-cadastro> -->
+
   <ion-content [fullscreen]="true">
         <ion-row class="ion-justify-content-center">
           <ion-title class = "cadastro">CADASTRO</ion-title>
@@ -29,7 +27,7 @@
         </ion-row>
       
         <ion-row class="ion-justify-content-center">
-          <ion-col size="6" *ngIf="mostrarLista"> <!-- Exibe a lista apenas se 'mostrarLista' for true -->
+          <ion-col size="6" *ngIf="mostrarLista"> 
             <ion-card class = "lista">
               <ion-card-header>
                 <ion-card-title>Lista</ion-card-title>
