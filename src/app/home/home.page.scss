@@ -1,24 +1,71 @@
-// * {
-//     outline: 1px solid rgb(87, 53, 53);
-// }
-
-// ion-content {
-//     --background: rgb(0, 2, 0);
-// }
-
-// ion-card {
-//     --background: white;
-// }
-
-.perfil-pic {
-    border-radius: 32px;
-    outline: 3px solid white;
+ion-header{
+    display: flex;
+    flex-direction: row;
+    justify-content:right;
+    background-color: black;
+    padding: 0;
+    margin: 0;
 }
 
-.titulo-nome {
-    font-size: 3rem;
+.voar{
+    color: cyan;
 }
 
-.titulo-objetivo {
-    font-size: 2rem;
+.aviao{
+    height: 50px;
+    margin-left: 20px;
+}
+
+ion-row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+ion-title, ion-card-titles{
+    font-weight: bold;
+}
+
+ion-input{
+    margin-top: 10px;
+    background-color: #b0b7b8;
+    border-radius: 15px;
+}
+
+ion-input::placeholder{
+    margin-top: 5px;
+}
+
+.botoes{
+    margin-top: 5px;
+    display: flex;
+    justify-content: end;
+}
+
+ion-label, h3, ion-card-title{
+    font-weight: 700;
+}
+
+.lista {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.titulos, .itens {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.itens{
+    gap: 6rem;
+}
+
+.titulos{
+    gap: 4rem;
 }

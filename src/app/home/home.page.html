@@ -1,8 +1,65 @@
-<ion-content [fullscreen]="true">
-    <app-cabecalho title = "Página Inicial" subtitle = "Conheça os personagens"></app-cabecalho>
-    <app-menu></app-menu>
-
-    
-</ion-content>
-
-<!-- ionic generate page cadastrar-funcionario -->
+<ion-header>
+    <img src = "https://cdn3.iconfinder.com/data/icons/education-209/64/plane-paper-toy-science-school-256.png" class = "aviao">
+    <ion-title class = "voar">FLIGHT</ion-title>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+        <ion-row class="ion-justify-content-center">
+          <ion-title class = "cadastro">CADASTRO</ion-title>
+          <ion-col size="6">
+            <ion-label>Modelo</ion-label>
+            <ion-input placeholder="ex: Boeing 737" [(ngModel)]="modelo"></ion-input>
+          </ion-col>
+          <ion-col size="6">
+            <ion-label>Marca</ion-label>
+            <ion-input placeholder="ex: Boeing" [(ngModel)]="marca"></ion-input>
+          </ion-col>
+          <ion-col size="6">
+            <ion-label>Ano de Fabricação</ion-label>
+            <ion-input placeholder="ex: 2015" [(ngModel)]="anoFabricacao" ></ion-input>
+          </ion-col>
+          <ion-col size="6">
+            <ion-label>Tipo</ion-label>
+            <ion-input placeholder="ex: Jato" [(ngModel)]="tipo"></ion-input>
+          </ion-col>
+          <ion-col size="6" class = "botoes">
+            <ion-button (click) = "consultar()" class = "botao1">Consultar</ion-button>
+            <ion-button (click) = "cadastrar()" class = "botao2">Cadastrar</ion-button>
+          </ion-col>
+        </ion-row>
+      
+        <ion-row class="ion-justify-content-center">
+          <ion-col size="6" *ngIf="mostrarLista"> <!-- Exibe a lista apenas se 'mostrarLista' for true -->
+            <ion-card class = "lista">
+              <ion-card-header>
+                <ion-card-title>Lista</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-label class = "titulos">
+                    <h3>ID</h3>
+                    <h3>Modelo</h3>
+                    <h3>Marca</h3>
+                    <h3>Ano</h3>
+                    <h3>Tipo</h3>
+                    <h3>Ação</h3>
+                </ion-label>
+              </ion-card-content>
+              <ion-card-content>
+                <ion-item *ngFor="let item of lista">
+                  <ion-label class = "itens">
+                    <p>{{ item.id }}</p>
+                    <p>{{ item.modelo }}</p>
+                    <p>{{ item.marca }}</p>
+                    <p>{{ item.ano }}</p>
+                    <p>{{ item.tipo }}</p>
+                    <ion-button color="danger" (click)="deletar(item.id)">
+                      <ion-icon name="trash-outline"></ion-icon>
+                    </ion-button>
+                  </ion-label>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>      
+  </ion-content>
+  
